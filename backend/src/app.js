@@ -13,7 +13,7 @@ import logger from './shared/utils/logger.js';
 // import whistleblowerRoutes from './modules/whistleblower/whistleblower.routes.js';
 import agencyRoutes from './modules/agency/agency.routes.js';
 import { authenticateAgency, registerAgency } from './modules/agency/agency.controller.js';
-// import reportRoutes from './modules/report/report.routes.js';
+import reportRoutes from './modules/report/report.routes.js';
 
 const app = express();
 
@@ -34,8 +34,8 @@ app.use('/api/agencies/login', authenticateAgency);
 
 // Use authentication middleware for protected routes
 // app.use('/api/whistleblowers', authMiddleware, whistleblowerRoutes);
-app.use('/api/agencies', authMiddleware, agencyRoutes);
-// app.use('/api/reports', authMiddleware, reportRoutes);
+app.use('/api/agencies', agencyRoutes);
+app.use('/api/reports', reportRoutes);
 
 // Global error handler
 app.use(errorHandler);

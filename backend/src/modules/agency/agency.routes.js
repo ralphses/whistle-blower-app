@@ -19,14 +19,14 @@ router.post('/register', registerAgency);
 // Authenticate an agency (no authentication required)
 router.post('/login', authenticateAgency);
 
-// Apply authentication middleware to the rest of the routes
-router.use(authMiddleware);
-
-// Get all agencies (authentication required)
 router.get('/', getAllAgencies);
+
 
 // Get an agency by ID (authentication required)
 router.get('/:id', getAgencyById);
+
+// Apply authentication middleware to the rest of the routes
+router.use(authMiddleware);
 
 // Update an agency by ID (authentication required)
 router.put('/:id', updateAgency);
